@@ -1,7 +1,6 @@
 
 
-class Pyramides extends App{
-  
+object pyramides extends App{
   var hauteur = 3
   var taille = hauteur*(hauteur+1)/2
   var permutations : List[Array[Int]] = Nil
@@ -56,5 +55,5 @@ class Pyramides extends App{
   }
   
   genere(0,tab)
-  println("apoihpihfgaphigphoaphigh")
+  println(tab)
 }
