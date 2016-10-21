@@ -56,5 +56,5 @@ class Pyramides extends App{
   }
   
   genere(0,tab)
-  println("apoihpihfgaphigphoaphigh")
+  println(tab)
 }

@@ -63,5 +63,10 @@ object pyramides extends App{
   }
   
   genere(0,tab)
-  affiche(tab)
+  var l = permutations
+  while(l != Nil){
+    affiche(l.head)
+    l=l.tail
+  }
+  
 }
