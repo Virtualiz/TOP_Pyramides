@@ -54,6 +54,14 @@ object pyramides extends App{
    return true
   }
   
+  def affiche(t : Array[Int]){
+    print("[")
+    for(i<-0 to t.length-1){
+      print(" "+t(i))
+    }
+    print("]")
+  }
+  
   genere(0,tab)
-  println(tab)
+  affiche(tab)
 }
