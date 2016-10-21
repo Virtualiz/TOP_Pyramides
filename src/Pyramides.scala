@@ -1,16 +1,20 @@
 
 
-class Pyramides {
+class Pyramides extends App{
   
-  def indice(l,col):Int={
+  var hauteur = 3
+  var taille = hauteur*(hauteur+1)/2
+  var permutations : List[Array[Int]] = Nil
+  var tab = Array.fill(taille)(0)
+
+  
+  def indice(l:Int,col:Int):Int={
     return l*(l-1)/2+col-1
   }
   
-  var hauteur = 3
-  var taille = hauteur*(h+1)/2
-  var permutations : List[Array[Int]] = Nil
   
-  def duplique(src : Array[Int]) : Array[Int]{
+  
+  def duplique(src : Array[Int]) : Array[Int] = {
     var dst = Array.fill(src.length)(0)
     for(i<-0 to src.length-1)
       dst(i)=src(i)
@@ -25,7 +29,7 @@ class Pyramides {
       for(valeur <- 1 to tab.length){
         var dejaPris = false
         for(i<-0 to rang-1){
-          if(tab(i)==valeur)) dejaPris = true
+          if(tab(i)==valeur) dejaPris = true
           if(!dejaPris){
             tab(rang)=valeur
             genere(rang+1,tab)
@@ -35,11 +39,9 @@ class Pyramides {
     }
   }
   
-  genere(0,Array.fill(taille)(0))
-  
   def correcte(tab:Array[Int]):Boolean = {
     var permutation = new String()
-    for(i<-0 tob.length-1){
+    for(i<-0 to tab.length-1){
       permutation += tab(i)
     }
     for(ligne<-1 to hauteur-1){
@@ -47,9 +49,11 @@ class Pyramides {
         val n1 = tab(indice(ligne+1,col))
         val n2 = tab(indice(ligne+1,col+1))
         val n3 = tab(indice(ligne,col))
-        if(math.abs(n1-n2)!n3) return false
+        if(math.abs(n1-n2)!=n3) return false
       }
     }
    return true
   }
+  
+  genere(0,tab)
 }
