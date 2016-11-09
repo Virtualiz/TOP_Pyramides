@@ -50,7 +50,7 @@ object pyramides extends App{
           val n1 = tab(indice(ligne+1,col))
           val n2 = tab(indice(ligne+1,col+1))
           val n3 = tab(indice(ligne,col))
-          if(math.abs(n1-n2)!=n3) return false
+          if(math.abs(n1-n2)!=n3) return false 
         }
       }
     }
