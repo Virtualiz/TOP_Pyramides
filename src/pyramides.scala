@@ -33,26 +33,27 @@ object pyramides extends App{
         }
         if(!dejaPris){
             tab(rang)=valeur
-            genere(rang+1,tab)
+            if (correcte(tab, rang)) genere(rang+1, tab)
           }
       }
     }
   }
   
-  def correcte(tab:Array[Int]):Boolean = {
+  def correcte(tab:Array[Int],rang : Int):Boolean = {
     var permutation = new String()
     for(i<-0 to tab.length-1){
       permutation += tab(i)
     }
     for(ligne<-1 to hauteur-1){
       for(col<-1 to ligne){
-        val n1 = tab(indice(ligne+1,col))
-        val n2 = tab(indice(ligne+1,col+1))
-        val n3 = tab(indice(ligne,col))
-        if(math.abs(n1-n2)!=n3) return false
+        if (indice(ligne+1,col+1) <= rang) {
+          val n1 = tab(indice(ligne+1,col))
+          val n2 = tab(indice(ligne+1,col+1))
+          val n3 = tab(indice(ligne,col))
+          if(math.abs(n1-n2)!=n3) return false
+        }
       }
     }
-   juste += 1
    return true
   }
   
@@ -61,7 +62,7 @@ object pyramides extends App{
     for(i<-0 to t.length-1){
       print(" "+t(i))
     }
-    print("] "+correcte(t)+"\n")
+    print("] \n")
   }
   
   genere(0,tab)
@@ -72,6 +73,6 @@ object pyramides extends App{
     l=l.tail
     nb += 1
   }
-  print("Nb : "+nb+" et "+juste+" juste(s).")
+  print("Nb : "+nb)
   
 }
