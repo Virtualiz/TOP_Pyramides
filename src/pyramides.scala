@@ -5,6 +5,7 @@ object pyramides extends App{
   var taille = hauteur*(hauteur+1)/2
   var permutations : List[Array[Int]] = Nil
   var tab = Array.fill(taille)(0)
+  var juste = 0;
 
   
   def indice(l:Int,col:Int):Int={
@@ -29,11 +30,11 @@ object pyramides extends App{
         var dejaPris = false
         for(i<-0 to rang-1){
           if(tab(i)==valeur) dejaPris = true
-          if(!dejaPris){
+        }
+        if(!dejaPris){
             tab(rang)=valeur
             genere(rang+1,tab)
           }
-        }
       }
     }
   }
@@ -51,6 +52,7 @@ object pyramides extends App{
         if(math.abs(n1-n2)!=n3) return false
       }
     }
+   juste += 1
    return true
   }
   
@@ -59,14 +61,17 @@ object pyramides extends App{
     for(i<-0 to t.length-1){
       print(" "+t(i))
     }
-    print("]")
+    print("] "+correcte(t)+"\n")
   }
   
   genere(0,tab)
   var l = permutations
+  var nb = 0;
   while(l != Nil){
     affiche(l.head)
     l=l.tail
+    nb += 1
   }
+  print("Nb : "+nb+" et "+juste+" juste(s).")
   
 }
